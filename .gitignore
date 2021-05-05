@@ -1,6 +1,8 @@
-*.pdf
-*.toc
-*.out
-*.log
 *.aux
-*.gz
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.synctex(busy)
+*.toc
