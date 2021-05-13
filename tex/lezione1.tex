@@ -33,8 +33,8 @@ La parte frazionaria, in generale, ha $\infty$ cifre e tecnicamente è una serie
 \begin{esempio}
 \uline{base 10}
 \[ \begin{split}
-    x & = +1278,3405 \dotsc \\
-    & = (+1) \cdot (1278 + 0,3405 \dotsc) \\
+    x & = +1278.3405 \dotsc \\
+    & = (+1) \cdot (1278 + 0.3405 \dotsc) \\
     & = (+1) \cdot ( \underbrace{1 \cdot 10^3}_{\text {migliaia}} + %
     \underbrace{2 \cdot 10^2}_{\text {centinaia}} + %
     \underbrace{7 \cdot 10^1}_{\text {decine}} + %
@@ -69,7 +69,7 @@ Per vedere che la parte frazionaria sta in $[0,1]$, osserviamo che se tutte le c
 \begin{esempio}
 \uline{base 10}
 \[ \begin{split}
-    (0,\overline{999} \dotsc)_{10} & = \sum_{j=1}^{\infty} 9 \cdot 10^{-j} \\
+    (0.\overline{999} \dotsc)_{10} & = \sum_{j=1}^{\infty} 9 \cdot 10^{-j} \\
     & = 9 \cdot \sum_{j=1}^{\infty} 10^{-j} \\
     & = 9 \cdot \biggl( \frac{1}{1 - \frac{1}{10}} - 1 \biggr) \\
     & = 9 \cdot \biggl( \frac{10}{9} - 1 \biggr) \\
@@ -79,7 +79,7 @@ Per vedere che la parte frazionaria sta in $[0,1]$, osserviamo che se tutte le c
 \begin{esempio}
 \uline{base 2}
 \[ \begin{split}
-    (0,\overline{111} \dotsc)_{2} & = \sum_{j=1}^{\infty} 1 \cdot 2^{-j} \\
+    (0.\overline{111} \dotsc)_{2} & = \sum_{j=1}^{\infty} 1 \cdot 2^{-j} \\
     & = 1 \cdot \sum_{j=1}^{\infty} 2^{-j} \\
     & = \frac{1}{1 - \frac{1}{2}} - 1 \\
     & = 2 - 1 = 1
@@ -92,12 +92,12 @@ Facciamo alcune osservazioni:
     \item i numeri razionali possono avere una parte frazionaria finita o infinita a seconda della base
     \begin{esempio} \end{esempio}
     \[ \begin{split}
-        \frac{1}{3} & = (0,\overline{333} \dotsc)_{10} \\
-        & = (0,100 \dotsc)_{3}
+        \frac{1}{3} & = (0.\overline{333} \dotsc)_{10} \\
+        & = (0.100 \dotsc)_{3}
     \end{split} \]
     infatti $\frac{1}{3} = 1 \cdot 3^{-1}$ in base 3. Ma in base 10
     \[ \begin{split}
-        (0,\overline{333} \dotsc)_{10} & = \sum_{j=1}^{\infty} 3 \cdot 10^{-j} \\
+        (0.\overline{333} \dotsc)_{10} & = \sum_{j=1}^{\infty} 3 \cdot 10^{-j} \\
         & = 3 \cdot \sum_{j=1}^{\infty} 10^{-j} \\
         & = 3 \cdot \frac{1}{9} = \frac{1}{3} \\
         \end{split} 
@@ -148,9 +148,9 @@ In realtà la tecnica di approssimazione più usata non è il troncamento, bens�
 Si approssima 
 \[ \begin{split}
     x & = sign(x)\biggl( \sum_{j=0}^m c_j b^j + \sum_{j=1}^\infty c_{-j} b^{-j} \biggr) \\
-    & = sign(x) \biggl( \sum_{j=0}^m c_j b^j + 0,c_{-1}c_{-2} \dotsc c_{-n} \dotsc \biggr) 
+    & = sign(x) \biggl( \sum_{j=0}^m c_j b^j + 0.c_{-1}c_{-2} \dotsc c_{-n} \dotsc \biggr) 
 \end{split} \]
-con \[ \Tilde{x}_n^{arr} = sign(x) \biggl( \sum_{j=0}^m c_j b^j + 0,c_{-1}c_{-2} \dotsc \Tilde{c}_{-n} \biggr) \]
+con \[ \Tilde{x}_n^{arr} = sign(x) \biggl( \sum_{j=0}^m c_j b^j + 0.c_{-1}c_{-2} \dotsc \Tilde{c}_{-n} \biggr) \]
 dove \[\Tilde{c}_{-n} = 
 \begin{cases}
     c_{-n} & \text{se $c_{-(n+1)} < \frac{b}{2} \quad \longrightarrow DIFETTO$} \\
@@ -168,11 +168,11 @@ Consideriamo $b=10$ e $n=2$ e prendiamo i seguenti numeri sull'asse reale
 \begin{center}
     \includegraphics[scale=0.65]{foto/img1}
 \end{center}
-Vediamo quali numeri sono approssimati da 0,44 per troncamento e per arrotondamento a 2 cifre (notiamo che qui abbiamo numeri del tipo $0,\dotsc$ che quindi coincidono con la propria parte frazionaria).\\
-Per \uline{troncamento} 0,44 approssima tutti i numeri dell'intervallo $[0,44 , 0,45)$ che sono del tipo $0,44\dotsc$ (escluso $0,44\overline{999}\dotsc = 0,45$).\\
-Invece per \uline{arrotondamento} approssima tutti i numeri dell'intervallo $[0,435 , 0,445)$ \\ 
-Infatti approssima per \uline{difetto} tutti i numeri del tipo \[ 0,440\dotsc \] \[ 0,441\dotsc \] \[ 0,442\dotsc \] \[ 0,443\dotsc \] \[ 0,444\dotsc \]
-Mentre approssima per \uline{eccesso} tutti i numeri del tipo \[ 0,435\dotsc \] \[ 0,436\dotsc \] \[ 0,437\dotsc \] \[ 0,438\dotsc \] \[ 0,439\dotsc \]
-In pratica l'intervallo di troncamento è un intorno destro di $0,44$ di ampiezza $10^{-2}$, mentre l'intervallo di arrotondamento è un intorno simmetrico di raggio $\frac{10^{-2}}{2}$ e ampiezza $10^{-2}$.\\
-Risulta evidente dal punto di vista grafico che l'estremo superiore degli errori di troncamento sia $= 10^{-2}$ (entrambi sono intervalli semi aperti a destra) mentre il massimo degli errori di arrotondamento è $\frac{10^{-2}}{2}$ e si ottiene per $x = 0,435$.
+Vediamo quali numeri sono approssimati da 0.44 per troncamento e per arrotondamento a 2 cifre (notiamo che qui abbiamo numeri del tipo $0.\dotsc$ che quindi coincidono con la propria parte frazionaria).\\
+Per \uline{troncamento} 0.44 approssima tutti i numeri dell'intervallo $[0.44 , 0.45)$ che sono del tipo $0.44\dotsc$ (escluso $0.44\overline{999}\dotsc = 0,45$).\\
+Invece per \uline{arrotondamento} approssima tutti i numeri dell'intervallo $[0.435 , 0.445)$ \\ 
+Infatti approssima per \uline{difetto} tutti i numeri del tipo \[ 0.440\dotsc \] \[ 0.441\dotsc \] \[ 0.442\dotsc \] \[ 0.443\dotsc \] \[ 0.444\dotsc \]
+Mentre approssima per \uline{eccesso} tutti i numeri del tipo \[ 0.435\dotsc \] \[ 0.436\dotsc \] \[ 0.437\dotsc \] \[ 0.438\dotsc \] \[ 0.439\dotsc \]
+In pratica l'intervallo di troncamento è un intorno destro di $0.44$ di ampiezza $10^{-2}$, mentre l'intervallo di arrotondamento è un intorno simmetrico di raggio $\frac{10^{-2}}{2}$ e ampiezza $10^{-2}$.\\
+Risulta evidente dal punto di vista grafico che l'estremo superiore degli errori di troncamento sia $= 10^{-2}$ (entrambi sono intervalli semi aperti a destra) mentre il massimo degli errori di arrotondamento è $\frac{10^{-2}}{2}$ e si ottiene per $x = 0.435$.
 \newpage
